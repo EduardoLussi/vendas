@@ -80,7 +80,17 @@ public class Main {
 				
 			} else if (op == 6) {
 				
+				Produtos prod = new Produtos();
 				
+				prod.setCd_produto(Integer.parseInt(JOptionPane.showInputDialog("Digite o código do produto")));
+				
+				if (p.size() < prod.getCd_produto()) {
+					JOptionPane.showMessageDialog(null, "Produto Inexistente");
+				} else {
+					prod = p.get(prod.getCd_produto() - 1);
+					prod.setVl_produto(Double.parseDouble(JOptionPane.showInputDialog("Digite o novo valor do produto")));
+					p.set(prod.getCd_produto() - 1, prod);
+				}
 				
 			} else {
 				i = 1;
