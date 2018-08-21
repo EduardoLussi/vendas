@@ -6,12 +6,14 @@ import javax.swing.JOptionPane;
 
 import br.edu.ifcvideira.beans.Compras;
 import br.edu.ifcvideira.beans.Produtos;
+import br.edu.ifcvideira.beans.Vendas;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
 		ArrayList<Produtos> p = new ArrayList();
+		ArrayList<Vendas> v = new ArrayList();
 		ArrayList<Compras> c = new ArrayList();
 		
 		for (int i = 0; i == 0;) {
@@ -55,7 +57,26 @@ public class Main {
 				
 			} else if (op == 2) {
 				
+				Vendas venda = new Vendas();
+				Produtos prodVenda = new Produtos();
 				
+				prodVenda.setCd_produto(Integer.parseInt(JOptionPane.showInputDialog("Digite o código do produto:")));
+				
+				if (p.size() < prodVenda.getCd_produto()) {
+					JOptionPane.showMessageDialog(null, "Produto inexistente");
+				} else {
+					prodVenda = p.get(prodVenda.getCd_produto() - 1);
+					venda.setQt_vendida_venda(Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade vendida")));
+					if (venda.getQt_vendida_venda() > prodVenda.getQt_estoque_produto()) {
+						JOptionPane.showMessageDialog(null, "Quantidade indisponível: " + prodVenda.getQt_estoque_produto());
+					} else {
+						venda.setVl_produto_venda(prodVenda.getVl_produto());
+						prodVenda.setQt_estoque_produto(prodVenda.getQt_estoque_produto() - venda.getQt_vendida_venda());
+						venda.setProdutoVenda(prodVenda);
+						p.set(prodVenda.getCd_produto() - 1, prodVenda);
+						v.add(venda);					
+					}
+				}
 				
 			} else if (op == 3) {
 				
