@@ -106,7 +106,24 @@ public class Main {
 				
 			} else if (op == 5) {
 				
+				double gastos = 0;
 				
+				for (int j = 0; j < c.size(); j++) {
+					gastos += c.get(j).getVl_compra() * c.get(j).getQt_comprada_compra();
+				}
+				
+				double lucroBruto = 0;
+				
+				for (int j = 0; j < v.size(); j++) {
+					lucroBruto += v.get(j).getVl_produto_venda() * v.get(j).getQt_vendida_venda();
+				}
+				
+				String analise = "Gastos: \n"
+						+ gastos + "\nGanhos:\n"
+								+ lucroBruto + "\nLucro Limpo:\n"
+										+ (lucroBruto - gastos);
+				
+				JOptionPane.showMessageDialog(null, "Análise de vendas:\n" + analise);
 				
 			} else if (op == 6) {
 				
