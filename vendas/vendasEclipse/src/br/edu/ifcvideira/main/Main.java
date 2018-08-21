@@ -93,7 +93,16 @@ public class Main {
 				
 			} else if (op == 4) {
 				
-				
+				String valoresVenda = "Vendas:";
+				for (int j = 0; j < v.size(); j++) {
+					valoresVenda += "\n\nVenda: " + (j + 1) + "\n"
+							+ "Código do Produto: " + v.get(j).getProdutoVenda().getCd_produto() + "\n"
+							+ "Nome do Produto: " + v.get(j).getProdutoVenda().getNm_produto() + "\n"
+							+ "Valor Unitário: " + v.get(j).getVl_produto_venda() + "\n"
+							+ "Quantidade Comprada: " + v.get(j).getQt_vendida_venda() + "\n"
+							+ "Valor total: " + v.get(j).getVl_produto_venda() * v.get(j).getQt_vendida_venda() + "\n";
+				}
+				JOptionPane.showMessageDialog(null, valoresVenda);
 				
 			} else if (op == 5) {
 				
