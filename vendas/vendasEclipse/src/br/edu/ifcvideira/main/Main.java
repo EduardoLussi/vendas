@@ -59,7 +59,16 @@ public class Main {
 				
 			} else if (op == 3) {
 				
-				
+				String valoresCompra = "Compras:";
+				for (int j = 0; j < c.size(); j++) {
+					valoresCompra += "\n\nCompra: " + (j + 1) + "\n"
+							+ "Valor por Unidade: " + c.get(j).getVl_compra() + "\n"
+							+ "Quantidade: " + c.get(j).getQt_comprada_compra() + "\n"
+							+ "Valor total: " + c.get(j).getVl_compra() * c.get(j).getQt_comprada_compra() + "\n"
+							+ "Código do produto: " + c.get(j).getProdutoCompra().getCd_produto() + "\n"
+							+ "Nome do produto: " + c.get(j).getProdutoCompra().getNm_produto() + "\n";
+				}
+				JOptionPane.showMessageDialog(null, valoresCompra);
 				
 			} else if (op == 4) {
 				
